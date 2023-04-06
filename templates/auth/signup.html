@@ -1,0 +1,65 @@
+{% extends 'nav.html' %}
+{% block title %}
+Hire-In Sign-Up
+{% endblock title %}
+{% block form %}
+<br>
+<br>
+<br>
+
+<h1 data-aos="fade-up">Sign Up</h1>
+{% for message in messages %}
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+        <strong></strong>{{message}} 
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+      </div>
+      {% endfor %}
+<form action="/authentication/signup" method="post">{% csrf_token %}
+    
+    <div class="form-group">
+        
+    
+    <label for="username">UserName</label>
+    <input type="text" class="form-control" name="username" id="username" placeholder="Username Must Be AlphaNumeric" required>
+    </div>
+    
+    <div class="form-group">
+    
+    <label for="fname">First Name</label>
+    <input type="text" class="form-control" name="fname" id="fname" required>
+    
+    </div>
+    <div class="form-group">
+    
+    <label for="lname">Last Name</label>
+    <input type="text" class="form-control" name="lname" id="lname" required>
+    
+    </div>
+    <div class="form-group">
+    
+    <label for="email">Email Address</label>
+    <input type="email" class="form-control" name="email" id="email" required>
+    
+    </div>
+    
+    <div class="form-group">
+    
+    <label for="pass1">Password</label>
+    <input type="password" class="form-control" name="pass1" id="pass1" required>
+    
+    </div>
+    <div class="form-group">
+    
+    <label for="pass2">Confirm Password</label>
+    <input type="password" class="form-control" name="pass2" id="pass2" required>
+    
+    </div>
+    
+   <a href="/authentication/login"><button type="submit" class="btn btn-primary btn-sm btn-block">SignUp</button></a>
+    
+    </form>
+    <p class="text-success mt-3">Already  User? 
+        <a href="/authentication/login">Login</a>
+        </p>
+{% endblock form %} 

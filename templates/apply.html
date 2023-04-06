@@ -1,0 +1,31 @@
+{% extends 'nav.html' %}
+{% block title %}
+Apply
+{% endblock title %}
+{% block form %}
+<br>
+<br>
+<br>
+
+<h1 data-aos="fade-up">Application</h1>
+
+{% for message in messages %}
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+        <strong></strong>{{message}} 
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+      </div>
+      {% endfor %}
+
+      <form action="applying/" method="post">{% csrf_token %}
+      <input type="text" class="form-control" name="username" id="username" placeholder="{{user.username}}"  readonly required>
+      <input type="date" class="form-control" name="date" id="date" placeholder="Date" required>
+      <input type="email" class="form-control" name="email" id="email" placeholder="{{user.email}}"  readonly required>
+      <input type="work" class="form-control" name="work" id="work" placeholder="Work" required>
+      <input type="text" class="form-control" name="expierence" id="expierence" placeholder="Expierence" required>
+      <input type="text" class="form-control" name="graduatedat" id="graduatedat" placeholder="Place of Graduation" required>
+
+<a href=""><button type="submit" class="btn btn-primary btn-sm btn-block">Apply</button></a>
+      </form>
+
+{% endblock form %} 

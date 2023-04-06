@@ -1,0 +1,26 @@
+{% extends 'nav1.html' %} 
+{% block title %} Hire-In {% endblock title %}
+
+{% block body %} 
+{% load static %}
+{% block form %}
+<form action="profile/" method="post">{% csrf_token %}
+<h1 data-aos="fade-up">Profile</h1>
+<p> <b>Name:</b>{{user.username}}</p>
+<p> <b>email:</b>{{user.email}}</p>
+    <label for="mobile">Mobile</label>
+    <input type="text" class="form-control" name="mobile" id="mobile" placeholder="include code(eg.+91,+01,.)" required>
+    <label for="dob">Date of birth</label>
+    <input type="text" class="form-control" name="dob" id="dob" required>
+    <label for="address1">Address 1</label>
+    <input type="text" class="form-control" name="address1" id="address2" required>
+    <label for="address2">Address 2</label>
+    <input type="text" class="form-control" name="address2" id="address2" required>
+    <label for="bio">Bio</label>
+    <input type="text" class="form-control" name="bio" id="bio" required>
+    <a href="/authentication/index"><button type="submit">Save</button></a>
+    
+</form>
+
+{% endblock form %} 
+{% endblock  %} 
